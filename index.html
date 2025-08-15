@@ -14,7 +14,7 @@
             <div class="heading">
                 <div class="flex">
                     <h1>All Books</h1>
-                    <button>Add Book</button>
+                    <button id="showBookDialog">Add Book</button>
                 </div>
             </div>
             <div class="book-shelf flex">
@@ -29,7 +29,8 @@
                     </div>
                 </div>
                 <div class="book-item flex">
-                    <img src="https://m.media-amazon.com/images/I/71MizulW5AL.jpg" alt="book-image" class="book-image">
+                    <img src="https://m.media-amazon.com/images/I/617lxveUjYL._UF1000,1000_QL80_.jpg" alt="book-image"
+                        class="book-image">
                     <div class="book-info">
                         <p class="book-title">Book Title: A long one</p>
                         <p class="book-desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium,
@@ -91,6 +92,26 @@
             </div>
         </div>
     </section>
+
+    <dialog class="addBookDialog">
+        <div class="container flex bookDialogDiv">
+            <button id="hideBookDialog">Close</button>
+            <label for="image-url">Enter URL</label>
+            <input id="image-url" type="url" required>
+
+            <label for="title">Enter Book Title</label>
+            <input id="title" type="text" required>
+
+            <label for="description">Enter Description</label>
+            <input id="description" type="text" required>
+
+            <label for="price">Enter Price</label>
+            <input id="price" type="number" required>
+
+            <button id="addBookButton">Add Book</button>
+        </div>
+    </dialog>
 </body>
+<script src="index.js"></script>
 
 </html>
