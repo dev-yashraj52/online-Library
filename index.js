@@ -11,3 +11,8 @@ showButton.addEventListener("click", () => {
 closeButton.addEventListener("click", () => {
     dialog.close();
 });
+
+
+
+//book object
+
