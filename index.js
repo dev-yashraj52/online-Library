@@ -89,5 +89,9 @@ addBookButton.addEventListener("click", () => {
 //delete button click function
 
 function deleteBook(bookId) {
-    console.log(bookId);
+    const index = myLibrary.findIndex(book => book.id === bookId);
+    if (index !== -1) {
+        myLibrary.splice(index, 1)
+    }
+    renderBook();
 }
