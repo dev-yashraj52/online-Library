@@ -17,12 +17,16 @@ button {
 }
 
 .book-image {
-    height: 220px;
+    height: 350px;
+    width: auto;
 }
 
 .book-item {
+    display: flex;
     flex-direction: column;
     width: 300px;
+    max-height: 540x;
+    min-height: 540px;
     border: 1px red solid;
     padding: 20px;
 }

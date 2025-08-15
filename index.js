@@ -41,9 +41,22 @@ addBookButton.addEventListener("click", () => {
 
     console.log(`${url.value}\n${title.value}\n${description.value}\n${price.value}`);
 
+    const bookItem = document.createElement("div");
+    bookItem.className = 'book-item';
+    bookItem.innerHTML = `<img src="${url.value}" alt="book-image" class="book-image">
+                    <div class="book-info">
+                        <p class="book-title">${title.value}</p>
+                        <p class="book-desc">${description.value}</p>
+                        <p class="book-price">₹${price.value}</p>
+                    </div>`;
+
+    const bookShelf = document.querySelector(".book-shelf");
+    bookShelf.appendChild(bookItem);
+
     url.value = "";
     title.value = "";
     description.value = "";
     price.value = "";
+
     // dialog.close();
 });
