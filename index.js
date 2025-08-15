@@ -42,7 +42,7 @@ function renderBook() {
                         <p class="book-title">${item.bookTitle}</p>
                         <p class="book-desc">${item.bookDescription}</p>
                         <p class="book-price">₹${item.bookPrice}</p>
-                        <button class="deleteButton" data-id="${item.id}">Delete</button>
+                        <button class="deleteButton" data-id="${item.id}" onclick="deleteBook(this.dataset.id)">Delete</button>
                     </div>`;
 
         const bookShelf = document.querySelector(".book-shelf");
@@ -76,3 +76,10 @@ addBookButton.addEventListener("click", () => {
 
     dialog.close();
 });
+
+
+//delete button click function
+
+function deleteBook(bookId) {
+    console.log(bookId);
+}
