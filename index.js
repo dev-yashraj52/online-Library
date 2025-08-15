@@ -19,14 +19,38 @@ closeButton.addEventListener("click", () => {
 const myLibrary = [];
 
 function Book(bookUrl, bookTitle, bookDescription, bookPrice) {
+    this.id = crypto.randomUUID();
     this.bookUrl = bookUrl;
     this.bookTitle = bookTitle;
     this.bookDescription = bookDescription;
     this.bookPrice = bookPrice;
 }
 
-function addBookToLibrary() {
+function addBookToLibrary(bookUrl, bookTitle, bookDescription, bookPrice) {
+    const newBook = new Book(bookUrl, bookTitle, bookDescription, bookPrice);
+    myLibrary.push(newBook);
+    renderBook();
+    console.log(newBook);
+}
 
+function renderBook() {
+    for (item of myLibrary) {
+        const bookItem = document.createElement("div");
+        bookItem.className = 'book-item';
+        bookItem.innerHTML = `<img src="${item.bookUrl}" alt="book-image" class="book-image">
+                    <div class="book-info">
+                        <p class="book-title">${item.bookTitle}</p>
+                        <p class="book-desc">${item.bookDescription}</p>
+                        <p class="book-price">₹${item.bookPrice}</p>
+                        <button class="deleteButton" data-id="${item.id}">Delete</button>
+                    </div>`;
+
+        const bookShelf = document.querySelector(".book-shelf");
+        bookShelf.appendChild(bookItem);
+
+
+        console.log(`${item.id}\n${item.bookUrl}\n${item.bookTitle}\n${item.bookDescription}\n${item.bookPrice}\n`);
+    }
 }
 
 //get new book data on addBookButton Click
@@ -39,24 +63,16 @@ addBookButton.addEventListener("click", () => {
     const description = document.querySelector("#description");
     const price = document.querySelector("#price");
 
-    console.log(`${url.value}\n${title.value}\n${description.value}\n${price.value}`);
+    // console.log(`${url.value}\n${title.value}\n${description.value}\n${price.value}`);
 
-    const bookItem = document.createElement("div");
-    bookItem.className = 'book-item';
-    bookItem.innerHTML = `<img src="${url.value}" alt="book-image" class="book-image">
-                    <div class="book-info">
-                        <p class="book-title">${title.value}</p>
-                        <p class="book-desc">${description.value}</p>
-                        <p class="book-price">₹${price.value}</p>
-                    </div>`;
+    addBookToLibrary(url.value, title.value, description.value, price.value)
 
-    const bookShelf = document.querySelector(".book-shelf");
-    bookShelf.appendChild(bookItem);
+    //reset the input values
 
     url.value = "";
     title.value = "";
     description.value = "";
     price.value = "";
 
-    // dialog.close();
+    dialog.close();
 });

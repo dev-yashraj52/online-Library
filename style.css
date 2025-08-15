@@ -12,6 +12,12 @@ button {
     color: white;
 }
 
+.deleteButton {
+    border-radius: 5px;
+    background-color: rgb(145, 14, 14);
+    margin-top: 10px;
+}
+
 .book-shelf {
     flex-wrap: wrap;
 }
