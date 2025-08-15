@@ -3,6 +3,11 @@
     margin: 0;
     padding: 0;
     -webkit-tap-highlight-color: transparent;
+    overflow-x: hidden;
+}
+
+.book-shelf {
+    flex-wrap: wrap;
 }
 
 .book-image {
@@ -11,9 +16,6 @@
 
 .book-item {
     flex-direction: column;
-}
-
-.book-shelf {
     width: 300px;
     border: 1px red solid;
     padding: 20px;
