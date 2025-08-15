@@ -32,8 +32,10 @@ button {
 }
 
 .book-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     align-self: flex-start;
-    margin: 0 auto;
 }
 
 .book-title {
