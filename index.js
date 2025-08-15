@@ -34,6 +34,9 @@ function addBookToLibrary(bookUrl, bookTitle, bookDescription, bookPrice) {
 }
 
 function renderBook() {
+    //clear old shelf before rendering
+    const bookShelf = document.querySelector(".book-shelf");
+    bookShelf.innerHTML = "";
     for (item of myLibrary) {
         const bookItem = document.createElement("div");
         bookItem.className = 'book-item';
@@ -45,13 +48,18 @@ function renderBook() {
                         <button class="deleteButton" data-id="${item.id}" onclick="deleteBook(this.dataset.id)">Delete</button>
                     </div>`;
 
-        const bookShelf = document.querySelector(".book-shelf");
+
         bookShelf.appendChild(bookItem);
 
 
         console.log(`${item.id}\n${item.bookUrl}\n${item.bookTitle}\n${item.bookDescription}\n${item.bookPrice}\n`);
     }
 }
+
+//some manual render
+
+addBookToLibrary("https://m.media-amazon.com/images/I/71MizulW5AL.jpg", "Art of War", "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium, quod!", 1100);
+addBookToLibrary("https://m.media-amazon.com/images/I/617lxveUjYL._UF1000,1000_QL80_.jpg", "The Alchemist", "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium, quod!", 950);
 
 //get new book data on addBookButton Click
 
@@ -65,7 +73,7 @@ addBookButton.addEventListener("click", () => {
 
     // console.log(`${url.value}\n${title.value}\n${description.value}\n${price.value}`);
 
-    addBookToLibrary(url.value, title.value, description.value, price.value)
+    addBookToLibrary(url.value, title.value, description.value, price.value);
 
     //reset the input values
 
